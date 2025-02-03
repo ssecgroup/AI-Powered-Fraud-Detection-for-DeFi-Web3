@@ -64,4 +64,7 @@ By leveraging machine learning and smart contracts on NEAR Protocol and Aurora, 
 
 1) Our AI-Powered Fraud Detection System offers a robust, secure, and automated solution to combat fraud in the DeFi and Web3 ecosystems. With real-time fraud prevention, machine learning capabilities, and decentralized infrastructure, this system ensures that users can safely engage in decentralized financial transactions without the fear of fraudulent activities.
 
+---------------------------------x-----------
+1) check contract folder for smart contract
+2) check python script folder for fraudetection system code and pipline for smart contract
 
