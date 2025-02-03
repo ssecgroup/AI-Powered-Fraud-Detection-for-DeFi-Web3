@@ -67,4 +67,7 @@ By leveraging machine learning and smart contracts on NEAR Protocol and Aurora, 
 ---------------------------------x-----------
 1) check contract folder for smart contract
 2) check python script folder for fraudetection system code and pipline for smart contract
+3) apart from these 2 folders , all are web ui for sample demo created for UI
+4) please check video of UI demonstration : https://vimeo.com/1053127567/1a3b0d85f5
+5) please check video of overall: 
 
