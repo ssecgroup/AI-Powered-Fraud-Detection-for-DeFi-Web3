@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract FraudDetection {
+
+    // Mapping to store wallet addresses and their fraud risk scores
+    mapping(address => uint256) public walletRiskScores;
+    // Mapping to track if a wallet has been flagged
+    mapping(address => bool) public flaggedWallets;
+
+    // Admin address for managing thresholds
+    address public admin;
+    
+    constructor() {
+        admin = msg.sender;
+    }
+
+    // Modifier to restrict access to admin only
+    modifier onlyAdmin() {
+        require(msg.sender == admin, "Not an admin");
+        _;
+    }
+
+    // Function to set risk score for a wallet
+    function setRiskScore(address _wallet, uint256 _score) public onlyAdmin {
+        walletRiskScores[_wallet] = _score;
+    }
+
+    // Function to flag a wallet as high-risk
+    function flagWallet(address _wallet) public onlyAdmin {
+        flaggedWallets[_wallet] = true;
+    }
+
+    // Function to unflag a wallet
+    function unflagWallet(address _wallet) public onlyAdmin {
+        flaggedWallets[_wallet] = false;
+    }
+
+    // Function to check risk before processing a transaction
+    function checkTransactionRisk(address _wallet) public view returns (string memory) {
+        uint256 riskScore = walletRiskScores[_wallet];
+        
+        // Decision based on risk score
+        if (flaggedWallets[_wallet] || riskScore > 80) {
+            return "High Risk - Transaction Blocked!";
+        } else if (riskScore > 50) {
+            return "Medium Risk - Proceed with Caution!";
+        } else {
+            return "Low Risk - Proceed!";
+        }
+    }
+}
